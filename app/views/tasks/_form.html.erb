@@ -24,6 +24,12 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :tag_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :completed, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :completed, :class => 'text_field' %>

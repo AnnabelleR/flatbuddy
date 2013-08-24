@@ -1,4 +1,6 @@
 Flatbuddy::Application.routes.draw do
+  resources :tags
+
   resources :flatmates
 
   resources :tasks

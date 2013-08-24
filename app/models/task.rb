@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+    has_many :task_tags
+    has_many :tags, :through => :task_tags
     belongs_to :flatmate
 
     def overdue?
@@ -12,5 +14,6 @@ class Task < ActiveRecord::Base
           ""
         end
     end
+
 
 end
