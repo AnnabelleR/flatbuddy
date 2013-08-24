@@ -12,6 +12,10 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+gem "therubyracer"
+
+gem "less-rails"
+
 gem 'twitter-bootstrap-rails'
 
 # Use CoffeeScript for .js.coffee assets and views
