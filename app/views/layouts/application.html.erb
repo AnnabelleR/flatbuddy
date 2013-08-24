@@ -31,16 +31,29 @@
     </div>
   </div>
 
+  <div class="wrapper">
+
 <div class="container">
+  
+
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">×</a>
+      <%= msg %>
+    </div>
+  <% end %>
+  
     <div class="row">
         <div class="span9"><%= yield %></div>
         <div class="span3">
-            <h2>About us</h2>
-            Stay friend with your flatmates!
-            Use Flatbuddy to assign, manage and split the flat tasks.
-            You do not have to be the bad guy anymore, Flatbuddy will chase your flatmates for you until the tasks are completed.
+            <h2 class="title">About us</h2>
+            <p>Stay friend with your flatmates!</p>
+            <p>Use Flatbuddy to assign, manage and split the flat tasks.</p>
+            <p>You do not have to be the bad guy anymore, Flatbuddy will chase your flatmates for you until the tasks are completed.</p>
+            <%= image_tag "girls2.png" %>
         </div>
     </div>
+  </div>
 
 </div>
 </body>
