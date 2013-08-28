@@ -4,12 +4,15 @@ Flatbuddy::Application.routes.draw do
   resources :flatmates
 
   resources :tasks
+  root 'static#index'
+  #match 'home', :to => "static#index"
+  #root :to => "static#index"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
