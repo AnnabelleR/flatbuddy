@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    #@tasks = current_user.flatmate.flat.tasks
   end
 
   # GET /tasks/1
@@ -27,6 +28,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    @task.flat = current_user.flatmate.flat
 
     respond_to do |format|
       if @task.save
