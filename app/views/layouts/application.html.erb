@@ -25,13 +25,15 @@
         <a class="brand" style="font-size: 20px; font-family: 'corben';" href="/" >Flatbuddy</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "Browse Tasks", tasks_path %></li>
-            <li><%= link_to 'New Task', new_task_path %></li>
+            <li><%= link_to "Browse Tasks", tasks_path if current_user && current_user.flatmate.present? %></li>
+            <li><%= link_to 'New Task', new_task_path if current_user && current_user.flatmate.present? %></li>
+            <li><%= link_to 'New Flat', new_flats_path if current_user && current_user.flatmate.nil? %></li>
+
           </ul>
           
           <div class="btn pull-right">
               <% if current_user %>
-                Logged in as <%= current_user.email %>.
+                Logged in as <%= link_to current_user.name || current_user.email, edit_profiles_path %>.
                 <%= link_to "Log Out", logout_path %>
               <% else %>
                 <%= link_to "Sign Up", signup_path %> or

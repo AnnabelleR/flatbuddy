@@ -1,6 +1,7 @@
 class FlatsController < ApplicationController
+  before_filter :authorize, only: [:index, :new, :show, :edit, :update, :destroy]
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /flats
   # GET /flats.json
   def index
@@ -25,6 +26,7 @@ class FlatsController < ApplicationController
   # POST /flats.json
   def create
     @flat = Flat.new(flat_params)
+    @flat.flatmates << current_user.flatmate
 
     respond_to do |format|
       if @flat.save
