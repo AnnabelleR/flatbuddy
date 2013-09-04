@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
-    #@tasks = current_user.flatmate.flat.tasks
+    @tasks = current_user.flatmate.flat.tasks
   end
 
   # GET /tasks/1
